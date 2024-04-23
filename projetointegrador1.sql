@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/04/2024 às 07:34
+-- Tempo de geração: 10/04/2024 às 00:50
 -- Versão do servidor: 10.4.25-MariaDB
 -- Versão do PHP: 7.4.30
-
+create database projeto;
+use projeto;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -23,30 +24,26 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estrutura para tabela `produto`
+--Create database projetointegrador1;
+  use projetointegrador1;
 --
 
-CREATE TABLE `produto` (
-  `idProduto` int(4) NOT NULL,
-  `nomeProduto` varchar(50) NOT NULL,
-  `descProduto` varchar(150) NOT NULL,
-  `qtdProduto` int(4) NOT NULL,
-  `precoProduto` float(7,2) NOT NULL,
-  `impostoProduto` float(4,2) NOT NULL,
-  `custoProduto` float(7,2) NOT NULL,
-  `custoFixo` float(7,2) NOT NULL,
-  `comissaoVendas` float(4,2) NOT NULL,
-  `rentabilidadeProduto` float(4,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE Produto (
+  idProduto int NOT NULL,
+  descProduto varchar(150) NOT NULL,
+  qtdeProduto int NOT NULL,
+  precoProduto decimal(6,2) NOT NULL,
+  impostoProduto decimal(6,2) NOT NULL,
+  custoProduto int NOT NULL,
+  custoFixo int NOT NULL,
+  comissaoVendas int NOT NULL,
+  rentabilidadeProduto int NOT NULL,
+  primary key(idProduto)
+) DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `produto`
 --
-
-INSERT INTO `produto` (`idProduto`, `nomeProduto`, `descProduto`, `qtdProduto`, `precoProduto`, `impostoProduto`, `custoProduto`, `custoFixo`, `comissaoVendas`, `rentabilidadeProduto`) VALUES
-(4, 'Tênis1_teste', 'Descrição Tênis1_teste', 10, 0.00, 10.00, 75.00, 50.00, 5.00, 30.00),
-(8, 'Tênis2_teste', 'Descrição Tênis2_teste', 182, 0.00, 6.00, 214.00, 21.00, 4.00, 23.00);
 
 --
 -- Índices para tabelas despejadas
@@ -55,8 +52,8 @@ INSERT INTO `produto` (`idProduto`, `nomeProduto`, `descProduto`, `qtdProduto`, 
 --
 -- Índices de tabela `produto`
 --
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`idProduto`);
+-- ALTER TABLE `produto`
+-- ADD PRIMARY KEY (`idProduto`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -66,9 +63,18 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `idProduto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idProduto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO produto (idProduto,descProduto,qtdeProduto,precoProduto,impostoProduto, 
+custoProduto, custoFixo,comissaoVendas,rentabilidadeProduto)
+VALUES (0001, "Tenis Air Jordan 1 Low Retro Preto/Vermelho",30,1044.99,10,20,60,10,15),
+(0002, "Tenis Air Force 1 Shadow Pale Ivory/ Branco amarelo roxo e verde",20,809.99,15,60,70,5,7),
+(0003, "Tenis Nike Giannis Immortality",15,759.99,38,88,56,22,30),
+(0004, "Tenis Dunk SP Low Black and White",25,854.99,17,89,55,10,10),
+(0005, "Tenis Nike Air Force 1",12,854.99,30,45,23,15,66),
+(0006, "Tenis Yeezy Boost 350 V2 / Cream White",8,1200.00,10,88,19,30,5);
